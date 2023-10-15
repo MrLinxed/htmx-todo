@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todos</title>
+
+    <link rel="stylesheet" href="/css/styles.css"></link>
+    <script src="/js/htmx.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1 class="main_title">HTMX Todo App</h1>
+        {% include "_partials/createForm.html" %}
+        {% include "_partials/todos.html" %}
+    </div>
+</body>
+</html>

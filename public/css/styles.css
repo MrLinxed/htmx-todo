@@ -1,0 +1,118 @@
+:root {
+    --main-bg-color: #011627;
+    --main-font-color: #FDFFFC;
+    --main-primary-color: #FF9F1C;
+    --main-success-color: #5cb85c;
+
+    --alt-font-color: var(--main-bg-color);
+    --main-box-color: var(--main-font-color);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--main-bg-color);
+    color: var(--main-font-color);
+}
+
+#app {
+    width: 600px;
+    margin: 0 auto;
+}
+
+.main_title {
+    text-align: center;
+    width: 100%;
+}
+
+.todo_form {
+    display: flex;
+    flex-direction: row;
+}
+
+.todo_input {
+    width: 100%;
+    line-height: 32px;
+    border-radius: 5px;
+}
+
+.submit_todo_form_button {
+    background-color: var(--main-success-color);
+    padding: 8px 16px;
+    border-radius: 5px;
+    color: var(--main-font-color);
+    font-size: 18px;
+}
+
+.todos_wrapper {
+    padding: 8px 16px;
+}
+
+.todo_list {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.todo_item {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+
+    width: 100%;
+    line-height: 32px;
+    color: var(--alt-font-color);
+    background-color: var(--main-box-color);
+    margin-bottom: 8px;
+    padding: 4px 8px;
+    font-size: 24px;
+    border-left: 8px solid var(--main-box-color);
+    cursor: pointer;
+}
+
+.todo_item.checked {
+    filter: brightness(75%);
+}
+
+.todo_item.checked .todo_item_content {
+    text-decoration: line-through;
+}
+
+.todo_item.checked .fake_radio {
+    color: var(--main-primary-color);
+    background-color: var(--main-bg-color);
+}
+
+.todo_item.checked .fake_radio:before {
+    content: "\2714";
+    font-size: 20px;
+    line-height: initial;
+    margin-top: -8px;
+    display: block;
+}
+
+.todo_item:hover {
+    border-left: 8px solid var(--main-primary-color);
+}
+
+.fake_radio {
+    border: 1px solid var(--alt-font-color);
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    border-radius: 100%;
+}
+
+.todo_item_content {
+    flex-grow: 2;
+}
+
+.remove_item {
+    display: none;
+}
+
+.todo_item:hover .remove_item {
+    display: initial;
+}

@@ -1,0 +1,26 @@
+<div 
+    class="todos_wrapper"
+    hx-get="/todo" 
+    hx-trigger="refreshTodos from:body" 
+    hx-swap="outerHTML"
+>
+    <ul class="todo_list" hx-target=".todo_list" hx-sync="this">
+        {% for todo in todos %}
+            <li 
+                class="todo_item {%if todo.checked %}checked{% endif %}"
+                hx-post="/todo/{{todo.id}}"
+                hx-vals='{"checked": {%if todo.checked %} 0 {% else %} 1 {% endif %} }'
+            >
+                <div>
+                    <span class="fake_radio"></span>
+                </div>
+                <div class="todo_item_content">
+                    {{todo.todo}}
+                </div>
+                <div hx-delete="/todo/{{todo.id}}">
+                    <span class="remove_item">&#10005;</span>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
